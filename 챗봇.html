@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 상담 챗봇</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #responseOutput, #memo {
+            white-space: pre-wrap;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI 상담 챗봇</h1>
+    <div>
+        <textarea id="userInput" placeholder="상담 내용을 입력하세요"></textarea>
+    </div>
+    <div>
+        <button onclick="getResponse()">상담하기</button>
+    </div>
+    <div>
+        <h2>답변:</h2>
+        <p id="responseOutput"></p>
+    </div>
+    <div>
+        <h2>상담 내용 메모장:</h2>
+        <textarea id="memo" placeholder="여기에 상담 내용이 나타납니다" readonly></textarea>
+    </div>
+
+    <script>
+        function getResponse() {
+            const userInput = document.getElementById('userInput').value;
+            // 여기에 AI 모델을 연동하여 응답을 생성합니다.
+            // 예시로 고정된 응답을 사용합니다.
+            const response = "AI 응답 예시: " + userInput;
+
+            document.getElementById('responseOutput').innerText = response;
+            updateMemo(userInput, response);
+        }
+
+        function updateMemo(userInput, response) {
+            const memo = "상담 내용: " + userInput + "\n" + "AI 답변: " + response;
+            document.getElementById('memo').value = memo;
+        }
+    </script>
+</body>
+</html>
